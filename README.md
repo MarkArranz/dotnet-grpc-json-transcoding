@@ -2,6 +2,33 @@
 
 POC to investigate the capabilities of ASP.NET JSON Transcoding.
 
+## How to Run
+
+1. Clone the repo locally.
+2. Execute the following commands:
+   
+    ```bash
+    cd GrpcGreeter
+    dotnet run .
+    ```
+
+    You should see an output similar to:
+   
+    ```
+    info: Microsoft.Hosting.Lifetime[14]
+          Now listening on: http://localhost:5000
+    info: Microsoft.Hosting.Lifetime[0]
+          Application started. Press Ctrl+C to shut down.
+    info: Microsoft.Hosting.Lifetime[0]
+          Hosting environment: Development
+    info: Microsoft.Hosting.Lifetime[0]
+    ```
+
+3. Note the HTTP `localhost` address on the second line of the output.
+4. Using your browser, navigate to the `/swagger` path of the localhost address.
+   * For example, if I got the output above, I would navigate to: [http://localhost:5000/swagger](http://localhost:5000/swagger)
+
+
 ## Motivation
 
 Suppose your team has already built out a handful of gRPC service endpoints that they now want to expose to a browser application as API endpoints. According to ["The state of gRPC in the broswer"](https://grpc.io/blog/state-of-grpc-web/#the-grpc-web-spec),
