@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 option csharp_namespace = "GrpcGreeter";
+
 import "google/api/annotations.proto";
 
 package greet;
@@ -23,6 +24,6 @@ message HelloRequest {
 
 // The response message containing the greetings.
 message HelloReply {
-  // Hello replay message.
+  // Hello reply message.
   string message = 1;
 }

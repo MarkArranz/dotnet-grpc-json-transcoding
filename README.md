@@ -24,8 +24,8 @@ POC to investigate the capabilities of ASP.NET JSON Transcoding.
     info: Microsoft.Hosting.Lifetime[0]
     ```
 
-3. Note the HTTP `localhost` address on the second line of the output.
-4. Using your browser, navigate to the `/swagger` path of the localhost address.
+3. Open the HTTP `localhost` address located on the second line of the output in your browser.
+4. Append `/swagger` to the path of the localhost address.
    * For example, if I got the output above, I would navigate to: [http://localhost:5000/swagger](http://localhost:5000/swagger)
 
 

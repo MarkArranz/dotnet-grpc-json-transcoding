@@ -2,21 +2,24 @@ using GrpcGreeter.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Additional configuration is required to successfully run gRPC on macOS.
-// For instructions on how to configure Kestrel and gRPC clients on macOS, visit https://go.microsoft.com/fwlink/?linkid=2099682
-
-// Add services to the container.
-// Register JSON Transcoding 
+// Register gRPC and JSON Transcoding 
 builder.Services.AddGrpc().AddJsonTranscoding();
-// Configure Swashbuckle to include gRPC endpoints.
+
+// Configure Swagger to include gRPC endpoints.
 builder.Services.AddGrpcSwagger();
+
+// Autogenerate Swagger documentation
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1",
-        new Microsoft.OpenApi.Models.OpenApiInfo { Title = "gRPC transcoding", Version = "v1" });
+    c.SwaggerDoc(
+        "v1",
+        new Microsoft.OpenApi.Models.OpenApiInfo { Title = "gRPC transcoding", Version = "v1" }
+    );
 
     var filePath = Path.Combine(System.AppContext.BaseDirectory, "GrpcGreeter.xml");
+    // Include comments for .proto messages. 
     c.IncludeXmlComments(filePath);
+    // Include comments for .proto services.
     c.IncludeGrpcXmlComments(filePath, includeControllerXmlComments: true);
 });
 
